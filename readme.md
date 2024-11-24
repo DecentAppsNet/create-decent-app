@@ -48,6 +48,14 @@ Decent apps allow users to trust certain kinds of use cases in web apps that the
 
 Users can do these kinds of things without fear of insurance companies, government agencies, marketeers, research harvesters, doxxers, hackers, scammers, and spammers exploiting them.
 
+# Deploying to DecentApps.net
+
+There is an option in the install script to "Include a Github deploy script for decentapps.net?" If you say "yes", an action will run when you `git push` to a Github repo. Without configuration of some parameters, the script will benignly fail and not do anything at all.
+
+[Decentapps.net](https://decentapps.net) is envisioned as a portal for decent apps, allowing discovery of apps that follow the sensibilities. An advantage of having local-LLM-based apps on a single domain is that a lot of loading can be skipped as users move from one app to another due to the models being cached *per-domain*. But it's early days for this effort, and I don't want to oversell it. At time of writing, the website has no traffice or users.
+
+That said, if you like the idea of this portal and are okay to follow the decent sensibilities with your app, please contact me. I'm interested in collaborating with you to put your app on decentapps.net. It would cost you nothing and doesn't prevent you from hosting the your app elsewhere at any time.
+
 # Licensing
 
 My code and other files in this repository are licensed under the MIT open source license.

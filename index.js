@@ -110,6 +110,8 @@ async function fileExists(path) {
   }
 }
 
+function isYes(text) { return text.toLowerCase().startsWith("y"); }
+
 //
 // Main function executed by NPX after installing this package. 
 // The template itself is not in this package, but rather it's cloned from a separate Git repo.
@@ -119,6 +121,8 @@ async function main() {
   if (getNodeMajorVersion() < MIN_NODE_VERSION) throw new ExpectedError(`This script requires Node.js version ${MIN_NODE_VERSION} or greater. ` + 
     `You are using version ${process.versions.node}.`);
 
+  // The security below isn't airtight, because we can assume the user running the script doesn't want to exploit themselves. 
+  // It's more about guarding against accidental mistakes or an attacker convincing the user to run a harmful command.
   console.log(separatorLine());
   console.log(`You and me are gonna make a new decent app! A few questions...`);
   const projectName = await promptUserForInput('Create project in a new subfolder named', process.argv[2] || "my-new-project");
@@ -132,6 +136,8 @@ async function main() {
   if (!appDisplayName) throw new ExpectedError(`App display name is required.`);
   if (containsInvalidHtmlCharacters(appDisplayName)) throw new ExpectedError(`App display name seems like it might contain an injection attack.` + 
     ` Consider using a different name, even if you replace it in the created project later.`);
+  const includeDeployScript = isYes(await promptUserForInput('Include a Github deploy script for decentapps.net?', 'no'));
+  if (includeDeployScript) { console.log(`Deploy script will be included, but see comments in readme.md for setting up your Github repository.`); }
   console.log(separatorLine());
 
   console.log(`Cloning from ${templateRepo} repository into ${projectName}...`);
@@ -143,7 +149,13 @@ async function main() {
 
   console.log(`Replacing placeholder text in project files with your provided text...`);
   await replacePlaceholdersInFile(`${projectName}/package.json`, "decentapp-template", projectName);
+  await replacePlaceholdersInFile(`${projectName}/readme.md`, "Decent App", appDisplayName);
   await replacePlaceholdersInDir(projectName, ["ts", "tsx", "html"], "Decent App", appDisplayName);
+
+  if (!includeDeployScript) {
+    console.log(`Removing deploy script...`);
+    await fileSystemModule.rmdir(`${projectName}/.github`, { recursive: true });
+  }
 
   console.log(`${ANSI_START_GREEN}${ANSI_START_BOLD}Success!${ANSI_RESET} Project created in ${projectName}.`);
   console.log(`\nTo build and run your new decent app:`);
