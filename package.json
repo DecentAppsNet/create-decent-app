@@ -1,0 +1,12 @@
+{
+  "name": "create-decent-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "keywords": [],
+  "author": "Erik Hermansen",
+  "license": "MIT",
+  "description": "Creates a new web app project that follows \"decent\" sensibilities.",
+  "bin": {
+    "create-decent-app": "./index.js"
+  }
+}
