@@ -1,6 +1,6 @@
 # Overview
 
-This package includes the global command for [https://github.com/erikh2000/create-decent-app](Create Decent App).
+This package includes the global command for [Create Decent App](https://github.com/erikh2000/create-decent-app).
 
 You will get the following:
 
@@ -25,8 +25,8 @@ But...
 
 Here are some ways to protect yourself from me (and worse people) providing NPX-ecutables:
 
-* Read through the install script at the [https://github.com/erikh2000/create-decent-app/index.js](Create Decent App git repo) before running the `npx` command. I wrote the script to be free of any dependencies other than Node.js built-in packages, and to have all the code that executes be easy to understand. You can spend 5 minutes checking, and you'll see I'm not doing anything sneaky.
-* OR... you could manually clone the template yourself and rename it to match your project. The template is [https://github.com/erikh2000/decentapp-template](right over here). No execution of scripts via `npx` need happen if you decide to clone the template yourself.
+* Read through the install script at the [Create Decent App git repo](https://github.com/erikh2000/create-decent-app/blob/main/index.js) before running the `npx` command. I wrote the script to be free of any dependencies other than Node.js built-in packages, and to have all the code that executes be easy to understand. You can spend 5 minutes checking, and you'll see I'm not doing anything sneaky.
+* OR... you could manually clone the template yourself and rename it to match your project. The template is [right over here](https://github.com/erikh2000/decentapp-template). No execution of scripts via `npx` need happen if you decide to clone the template yourself.
 * OR... you could run `npx` inside of Docker or some other virtualization.
 
 # Decent Sensibilities
@@ -35,7 +35,7 @@ Decent apps seek to do right by their users by keeping their data off of the clo
 
 * THINK LOCAL - the project template is designed to avoid use of services and give you enough to do things without them, including local LLM and persistent storage.
 * ASK BEFORE CALLING - if you do call services, ask the user for permission and never call services beyond those for which you have permission.
-* LOW-DEPENDENCY - packages should be imported with reluctance as they increase risk of supply chain attacks and other problems. There's an article I wrote about this sensibility called "Write More, Reuse Less".
+* LOW-DEPENDENCY - packages should be imported with reluctance as they increase risk of supply chain attacks and other problems. There's an article I wrote about this sensibility called "[Write More, Reuse Less](https://medium.com/gitconnected/write-more-reuse-less-fbf8a010c5f4)".
 * NO SNEAKINESS - "Sneaky" means unexpected by the user. An example would be creating a link to a website that sends user data in the querystring.
 
 Decent apps allow users to trust certain kinds of use cases in web apps that they might not otherwise. Some examples:
@@ -60,6 +60,4 @@ The project isn't open to contributions at this point. But that could change. Co
 
 # Contacting
 
-You can reach me on LinkedIn. I'll accept connections if you will just mention "decent apps" or some other shared interest in your connection request.
-
-https://www.linkedin.com/in/erikhermansen/
+You can reach me via my [LinkedIn profile](https://www.linkedin.com/in/erikhermansen/). I'll accept connections if you will just mention "decent apps" or some other shared interest in your connection request.

@@ -1,6 +1,6 @@
 {
   "name": "create-decent-app",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "keywords": [],
   "author": "Erik Hermansen",
@@ -8,5 +8,6 @@
   "description": "Creates a new web app project that follows \"decent\" sensibilities.",
   "bin": {
     "create-decent-app": "./index.js"
-  }
+  },
+  "keywords": ["webai", "webllm", "ollama", "llm", "offline-first"]
 }
