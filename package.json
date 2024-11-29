@@ -1,17 +1,18 @@
 {
   "name": "create-decent-app",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "index.js",
   "keywords": [
     "webai",
     "webllm",
     "ollama",
     "llm",
+    "local-first",
     "offline-first"
   ],
   "author": "Erik Hermansen",
   "license": "MIT",
-  "description": "Creates a new web app project that follows \"decent\" sensibilities.",
+  "description": "Creates a new LLM-based web app project that has a \"local-first\" sensibility.",
   "bin": {
     "create-decent-app": "./index.js"
   }
