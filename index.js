@@ -140,11 +140,11 @@ async function main() {
   if (includeDeployScript) { console.log(`Deploy script will be included, but see comments in readme.md for setting up your Github repository.`); }
   console.log(separatorLine());
 
-  console.log(`Cloning from ${templateRepo} repository into ${projectName}...`);
+  console.log(`Source from ${templateRepo} repository used for clone below.`);
   const cloneResult = childProcessModule.spawnSync("git", ["clone", templateRepo, projectName], { stdio: "inherit" });
   if (cloneResult.status !== 0) throw new ExpectedError("Failed to clone repository.");
 
-  console.log(`Removing .git folders...`); // Because it's a brand new repo with no ties to the past.
+  console.log(`Removing .git folders...`); // Because it's a brand new project with no ties to the past.
   await fileSystemModule.rm(`${projectName}/.git`, { recursive: true, force: true });
 
   console.log(`Replacing placeholder text in project files with your provided text...`);
@@ -154,7 +154,7 @@ async function main() {
 
   if (!includeDeployScript) {
     console.log(`Removing deploy script...`);
-    await fileSystemModule.rmdir(`${projectName}/.github`, { recursive: true });
+    await fileSystemModule.rm(`${projectName}/.github`, { recursive: true });
   }
 
   console.log(`${ANSI_START_GREEN}${ANSI_START_BOLD}Success!${ANSI_RESET} Project created in ${projectName}.`);
