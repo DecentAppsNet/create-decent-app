@@ -150,6 +150,7 @@ async function main() {
   console.log(`Replacing placeholder text in project files with your provided text...`);
   await replacePlaceholdersInFile(`${projectName}/package.json`, "decentapp-template", projectName);
   await replacePlaceholdersInFile(`${projectName}/readme.md`, "Decent App", appDisplayName);
+  await replacePlaceholdersInFile(`${projectName}/public/manifest.json`, "Decent App", appDisplayName);
   await replacePlaceholdersInDir(projectName, ["ts", "tsx", "html"], "Decent App", appDisplayName);
 
   if (!includeDeployScript) {

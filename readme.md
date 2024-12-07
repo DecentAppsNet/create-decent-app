@@ -10,6 +10,7 @@ Features:
 * Jest-based test runner for unit tests.
 * Use local LLMs via WebLLM (post-deployment) or Ollama (during development)
 * Common look and feel via widgets and design system.
+* Progressive web app (PWA) support. (Users can install fully-offline versions of your web app.)
 
 The code created by `create-decent-app` follows the spirit (if not the letter) of [Local-First](https://www.inkandswitch.com/local-first/) software development. There is a basic persistent-storage key/value utility module included to help you store user data without calling services. To give users of your web app the privacy benefits of using a local LLM, think about local-first.
 
