@@ -112,6 +112,18 @@ async function fileExists(path) {
 
 function isYes(text) { return text.toLowerCase().startsWith("y"); }
 
+async function readPackageJsonVersion() {
+  try {
+    const packageJsonPath = pathModule.join(__dirname, 'package.json');
+    const packageJsonData = await fileSystemModule.readFile(packageJsonPath, 'utf8');
+    const { version } = JSON.parse(packageJsonData);
+    return version;
+  } catch (error) {
+    console.error('Error reading package.json: ', error.message);
+    return null;
+  }
+}
+
 //
 // Main function executed by NPX after installing this package. 
 // The template itself is not in this package, but rather it's cloned from a separate Git repo.
@@ -120,6 +132,9 @@ function isYes(text) { return text.toLowerCase().startsWith("y"); }
 async function main() {
   if (getNodeMajorVersion() < MIN_NODE_VERSION) throw new ExpectedError(`This script requires Node.js version ${MIN_NODE_VERSION} or greater. ` + 
     `You are using version ${process.versions.node}.`);
+  const packageVersion = await readPackageJsonVersion();
+  if (!packageVersion) throw new ExpectedError(`I couldn't read the version of this package. It looks like maybe the package.json file is missing or corrupt.`);
+  console.log(`Decent App Creator v${packageVersion}`);
 
   // The security below isn't airtight, because we can assume the user running the script doesn't want to exploit themselves. 
   // It's more about guarding against accidental mistakes or an attacker convincing the user to run a harmful command.
