@@ -151,8 +151,6 @@ async function main() {
   if (!appDisplayName) throw new ExpectedError(`App display name is required.`);
   if (containsInvalidHtmlCharacters(appDisplayName)) throw new ExpectedError(`App display name seems like it might contain an injection attack.` + 
     ` Consider using a different name, even if you replace it in the created project later.`);
-  const includeDeployScript = isYes(await promptUserForInput('Include a Github deploy script for decentapps.net?', 'no'));
-  if (includeDeployScript) { console.log(`Deploy script will be included, but see comments in README.md for setting up your Github repository.`); }
   console.log(separatorLine());
 
   console.log(`Source from ${templateRepo} repository used for clone below.`);
@@ -167,11 +165,6 @@ async function main() {
   await replacePlaceholdersInFile(`${projectName}/README.md`, "Decent App", appDisplayName);
   await replacePlaceholdersInFile(`${projectName}/public/manifest.json`, "Decent App", appDisplayName);
   await replacePlaceholdersInDir(projectName, ["ts", "tsx", "html"], "Decent App", appDisplayName);
-
-  if (!includeDeployScript) {
-    console.log(`Removing deploy script...`);
-    await fileSystemModule.rm(`${projectName}/.github`, { recursive: true });
-  }
 
   console.log(`${ANSI_START_GREEN}${ANSI_START_BOLD}Success!${ANSI_RESET} Project created in ${projectName}.`);
   console.log(`\nTo build and run your new decent app:`);

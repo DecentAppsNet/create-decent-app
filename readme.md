@@ -7,8 +7,8 @@ After completing the install, you will get a working web app with UI to pleasant
 Features:
 * Static-content, single-page web app with Vite-built bundles.
 * Typescript/React codebase.
-* Jest-based test runner for unit tests.
-* Use local LLMs via WebLLM (post-deployment) or Ollama (during development)
+* Vitest-based test runner for unit tests.
+* Use local LLMs via WebLLM
 * Common look and feel via widgets and design system.
 * Progressive web app (PWA) support. (Users can install fully-offline versions of your web app.)
 
@@ -32,15 +32,9 @@ Here are some ways to protect yourself from me (and worse people) providing NPX-
 * OR... you could manually clone the template yourself and rename it to match your project. The template is [right over here](https://github.com/erikh2000/decentapp-template). No execution of scripts via `npx` need happen if you decide to clone the template yourself.
 * OR... you could run `npx` inside of Docker or some other virtualization.
 
-# Deploying to DecentApps.net
-
-There is an option in the install script to "Include a Github deploy script for decentapps.net?" If you say "yes", an action will run when you `git push` to a Github repo. Without configuration of some parameters, the script will benignly fail and not do anything at all.
-
-I might do a PaaS-style portal with this website later. You probably just want to choose the default "No", for now. If you say "Yes", it's harmless, but potentially annoying.
-
 # Licensing
 
-My code and other files in this repository are licensed under the MIT open source license.
+This repository is licensed under the MIT open source license.
 
 The template is in a [separate repository](https://github.com/erikh2000/decentapp-template) and has its own licensing, also MIT.
 
