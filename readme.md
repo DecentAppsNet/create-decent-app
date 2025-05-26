@@ -1,6 +1,6 @@
 # Overview
 
-This package includes the global command for [Create Decent App](https://github.com/erikh2000/create-decent-app).
+This package includes the global command for [Create Decent App](https://github.com/DecentAppsNet/create-decent-app).
 
 After completing the install, you will get a working web app with UI to pleasantly handle local LLM access in development and production.
 
@@ -28,15 +28,15 @@ Some options will be presented and you can pick what you like. Then `create-dece
 
 Here are some ways to protect yourself from me (and worse people) providing NPX-ecutables:
 
-* Read through the install script at the [Create Decent App git repo](https://github.com/erikh2000/create-decent-app/blob/main/index.js) before running the `npx` command. I wrote the script to be free of any dependencies other than Node.js built-in packages, and to have all the code that executes be easy to understand. You can spend 5 minutes checking, and you'll see I'm not doing anything sneaky.
-* OR... you could manually clone the template yourself and rename it to match your project. The template is [right over here](https://github.com/erikh2000/decentapp-template). No execution of scripts via `npx` need happen if you decide to clone the template yourself.
+* Read through the install script at the [Create Decent App git repo](https://github.com/DecentAppsNet/create-decent-app/blob/main/index.js) before running the `npx` command. I wrote the script to be free of any dependencies other than Node.js built-in packages, and to have all the code that executes be easy to understand. You can spend 5 minutes checking, and you'll see I'm not doing anything sneaky.
+* OR... you could manually clone the template yourself and rename it to match your project. The template is [right over here](https://github.com/DecentAppsNet/decentapp-template). No execution of scripts via `npx` need happen if you decide to clone the template yourself.
 * OR... you could run `npx` inside of Docker or some other virtualization.
 
 # Licensing
 
 This repository is licensed under the MIT open source license.
 
-The template is in a [separate repository](https://github.com/erikh2000/decentapp-template) and has its own licensing, also MIT.
+The template is in a [separate repository](https://github.com/DecentAppsNet/decentapp-template) and has its own licensing, also MIT.
 
 # Contributing
 
