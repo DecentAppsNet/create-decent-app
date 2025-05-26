@@ -154,7 +154,11 @@ async function main() {
   console.log(separatorLine());
 
   console.log(`Source from ${templateRepo} repository used for clone below.`);
-  const cloneResult = childProcessModule.spawnSync("git", ["clone", templateRepo, projectName], { stdio: "inherit" });
+  const cloneResult = childProcessModule.spawnSync(
+    "git",
+    ["clone", "-b", packageVersion, templateRepo, projectName], // There must be a branch in decentapp-template repo that matches the version of this package.
+    { stdio: "inherit" }
+  );
   if (cloneResult.status !== 0) throw new ExpectedError("Failed to clone repository.");
 
   console.log(`Removing .git folders...`); // Because it's a brand new project with no ties to the past.
