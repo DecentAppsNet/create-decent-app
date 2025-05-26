@@ -13,7 +13,7 @@ const MIN_NODE_VERSION = 14; // Minimum Node.js version required to run this scr
 // If you don't trust this script or are having troubles with it, alternatively, you can `git clone` from the template repo below 
 // and just edit the files manually. This script will do a few nice things beyond that, but it's quite easy to start from 
 // the template repo clone.
-const templateRepo = "https://github.com/erikh2000/decentapp-template";
+const templateRepo = "https://github.com/DecentAppsNet/decentapp-template.git";
 
 // ANSI text-formatting codes for console output.
 const ANSI_START_GREEN = "\x1b[32m";
@@ -109,8 +109,6 @@ async function fileExists(path) {
     return false;
   }
 }
-
-function isYes(text) { return text.toLowerCase().startsWith("y"); }
 
 async function readPackageJsonVersion() {
   try {
