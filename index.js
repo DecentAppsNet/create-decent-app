@@ -159,8 +159,9 @@ async function main() {
   );
   if (cloneResult.status !== 0) throw new ExpectedError("Failed to clone repository.");
 
-  console.log(`Removing .git folders...`); // Because it's a brand new project with no ties to the past.
-  await fileSystemModule.rm(`${projectName}/.git`, { recursive: true, force: true });
+  console.log(`Removing Git-related folders...`); 
+  await fileSystemModule.rm(`${projectName}/.git`, { recursive: true, force: true }); // Because it's a brand new project with no ties to the past.
+  await fileSystemModule.rm(`${projectName}/.github`, { recursive: true, force: true }); // Get rid of workflows intended only for the decentapp-template repo itself.
 
   console.log(`Replacing placeholder text in project files with your provided text...`);
   await replacePlaceholdersInFile(`${projectName}/package.json`, "decentapp-template", projectName);
