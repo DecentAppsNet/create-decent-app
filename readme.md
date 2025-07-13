@@ -9,6 +9,8 @@ Features:
 * Typescript/React codebase.
 * Vitest-based test runner for unit tests.
 * Use local LLMs via WebLLM
+* Model loading success prediction based on device capabilities, model specs, and past history of loading success.
+* On-device storage of app settings and logs.
 * Common look and feel via widgets and design system.
 * Progressive web app (PWA) support. (Users can install fully-offline versions of your web app.)
 
