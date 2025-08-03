@@ -155,7 +155,7 @@ async function main() {
   const cloneResult = childProcessModule.spawnSync(
     "git",
     ["clone", "--branch", packageVersion, 
-      "--single-branch", "--depth", "1", "-c", // There must be a branch/tag in decentapp-template repo that matches the version of this package.
+      "--single-branch", "--depth", "1", "-c", // There must be a branch/tag in decentapp-template repo that matches the version of this package. 
       "advice.detachedHead=false", templateRepo, projectName], 
     { stdio: "inherit" }
   );
@@ -169,6 +169,7 @@ async function main() {
   await replacePlaceholdersInFile(`${projectName}/package.json`, "decentapp-template", projectName);
   await replacePlaceholdersInFile(`${projectName}/README.md`, "Decent App", appDisplayName);
   await replacePlaceholdersInFile(`${projectName}/public/manifest.json`, "Decent App", appDisplayName);
+  await replacePlaceholdersInFile(`${projectName}/public/app-metadata.json`, "decent-app", projectName);
   await replacePlaceholdersInFile(`${projectName}/public/app-metadata.json`, "Decent App", appDisplayName);
   await replacePlaceholdersInDir(projectName, ["ts", "tsx", "html"], "Decent App", appDisplayName);
 
