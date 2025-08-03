@@ -154,7 +154,9 @@ async function main() {
   console.log(`Source from ${templateRepo} repository used for clone below.`);
   const cloneResult = childProcessModule.spawnSync(
     "git",
-    ["clone", "-b", packageVersion, templateRepo, projectName], // There must be a branch in decentapp-template repo that matches the version of this package.
+    ["clone", "--branch", packageVersion, 
+      "--single-branch", "--depth", "1", "-c", // There must be a branch/tag in decentapp-template repo that matches the version of this package.
+      "advice.detachedHead=false", templateRepo, projectName], 
     { stdio: "inherit" }
   );
   if (cloneResult.status !== 0) throw new ExpectedError("Failed to clone repository.");
@@ -167,6 +169,7 @@ async function main() {
   await replacePlaceholdersInFile(`${projectName}/package.json`, "decentapp-template", projectName);
   await replacePlaceholdersInFile(`${projectName}/README.md`, "Decent App", appDisplayName);
   await replacePlaceholdersInFile(`${projectName}/public/manifest.json`, "Decent App", appDisplayName);
+  await replacePlaceholdersInFile(`${projectName}/public/app-metadata.json`, "Decent App", appDisplayName);
   await replacePlaceholdersInDir(projectName, ["ts", "tsx", "html"], "Decent App", appDisplayName);
 
   console.log(`${ANSI_START_GREEN}${ANSI_START_BOLD}Success!${ANSI_RESET} Project created in ${projectName}.`);
